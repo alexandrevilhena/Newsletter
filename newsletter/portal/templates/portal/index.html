@@ -1,0 +1,406 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Newsletter</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'portal/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300..700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+      <div class="container">
+        <div class="news-inscritas">
+            <div class="news-titulo">
+                <div class="central">
+                    <h1>
+                        THE NEW'S LIST
+                    </h1>
+                </div>
+            </div>
+            <div class="news-subtitulo">
+                <div class="central">
+                    <h1>
+                        MINHAS NEWSLETTERS
+                    </h1>
+                </div>
+            </div>
+            <div class="news-container">
+                {% for item in newsletters %}
+                    <a href="{{ item.link_newsletter }}" class="news-link">
+                         <h2 class="titulo-news">
+                             {{ item.nome_newsletter }}
+                         </h2>
+                         <button onclick="unsubscribe({{ item.id }}); return false;" class="unsubscribe-btn">Desinscrever</button>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="dash">
+            <div class="frames">
+                <div class="area-usuario">
+                    <div>
+                        <p>
+                            Olá, {{ user.username }}!
+                        </p>
+                    </div>
+                    <div class="menu-btn">&#9776; </div>
+                    <div id="mySidebar" class="sidebar">
+                        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
+                        <a href="{% url 'configuracoes' %}">Configurações</a>
+                        <form action="{% url 'logout' %}" method="post">
+                             {% csrf_token %}
+                            <button type="submit" class="logout-btn">Desconectar</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="frame1">
+                    <div>
+                        <div class="titulo-frame1">
+                            <p class="frame-text1">
+                                Salários do Cargo
+                            </p>
+                        </div>
+                        <div class="infos_frame1">
+                            {% for row in media_salario_grupo.itertuples %}
+                                <p>
+                                    {{ row.senioridade }}&nbsp;&nbsp;&nbsp;🢒&nbsp;&nbsp;&nbsp;R$ {{ row.salario|floatformat:2 }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="frame1">
+                    <div>
+                        <div class="titulo-frame1">
+                            <p class="frame-text1">
+                                Perfis mais buscados
+                            </p>
+                        </div>
+                        <div class="infos_frame1">
+                            {% for perfil, count in top_perfil.items %}
+                                <p>
+                                   ★ {{ perfil }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="frame2">
+                        <div>
+                            <div class="titulo-frame1">
+                                <p class="frame-text1">
+                                    Qtd. de vagas em aberto
+                                </p>
+                            </div>
+                        </div>
+                        <div class="centraliza">
+                            <p class="infos_frame2">
+                                # &nbsp;&nbsp;{{qtd_vagas}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="frame2">
+                        <div class="org_frame2">
+                            <div class="titulo-frame1">
+                                <p class="frame-text1">
+                                    Salário médio da carreira
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="centraliza">
+                                <p class="infos_frame2">
+                                    R$ {{salario_medio|floatformat:2 }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="frame3">
+                   <div class="titulo-frame2">
+                        <p class="frame-text2">
+                            Newsletter em destaque
+                        </p>
+                   </div>
+                   <div class="materia-newsletter">
+                       {% if newsletter_1 %}
+                       {% else %}
+                            <p>Newsletter não está disponível.</p>
+                       {% endif %}
+                        <div class="materia-titulo">
+                            <h2>
+                                {{ newsletter_1.titulo_materia_chamariz }}
+                            </h2>
+                        </div>
+                       <div class="materia-conteudo">
+                           <p>
+                               {{ newsletter_1.desc_materia_chamativa }}
+                           </p>
+
+                       </div>
+                       <div class="subscribe-button">
+                           {% if newsletter_1 %}
+                                <a href="#" onclick="postLink('{% url 'inscrever_newsletter' newsletter_1.id %}');">Inscreva-se</a>
+                            {% else %}
+                                <a href="#">Inscreva-se</a>
+                            {% endif %}
+                       </div>
+                   </div>
+                </div>
+                <div class="frame3">
+                    <div class="titulo-frame2">
+                        <p class="frame-text2">
+                            Quantos anos as vagas exigem depois de formado?
+                        </p>
+                    </div>
+                    <div class="conteudo-grafico1">
+                        <div id="grafico_barras" class="graficos"></div>
+                    </div>
+                </div>
+                <div class="frame3">
+                   <div class="titulo-frame2">
+                        <p class="frame-text2">
+                            Newsletter em destaque
+                        </p>
+                   </div>
+                   <div class="materia-newsletter">
+                       {% if newsletter_2 %}
+                       {% else %}
+                            <p>Newsletter não está disponível.</p>
+                       {% endif %}
+                        <div class="materia-titulo">
+                            <h2>
+                                {{ newsletter_2.titulo_materia_chamariz }}
+                            </h2>
+                        </div>
+                       <div class="materia-conteudo">
+                           <p>
+                               {{ newsletter_2.desc_materia_chamativa }}
+                           </p>
+
+                       </div>
+                       <div class="subscribe-button">
+                            {% if newsletter_2 %}
+                                <a href="#" onclick="postLink('{% url 'inscrever_newsletter' newsletter_2.id %}');">Inscreva-se</a>
+                            {% else %}
+                                <a href="#">Newsletter não disponível</a>
+                            {% endif %}
+                        </div>
+                   </div>
+                </div>
+                <div class="frame3">
+                    <div class="titulo-frame2">
+                        <p class="frame-text2">
+                            Skills mais buscadas
+                        </p>
+                    </div>
+                    <div class="conteudo-grafico2">
+                        <div id="grafico_radar" class="graficos"></div>
+                    </div>
+                </div>
+                <div class="frame3">
+                    <div class="titulo-frame">
+                        <p class="frame-text2">
+                            Salários comparativos CLT X CNPJ
+                        </p>
+                        <a href="https://www.contabilizei.com.br/calculadora-clt-pj/" class="frame-textconta">
+                            Powered by Contabilizei
+                        </a>
+                    </div>
+                    <div class="conteudo-grafico2">
+                        <div id="grafico_compara" class="graficos">
+                        </div>
+                    </div>
+                </div>
+                <div class="frame3">
+                    <div class="titulo-frame">
+                        <p class="frame-text2">
+                            Tendência média salarial por semana
+                        </p>
+                    </div>
+                    <div class="conteudo-grafico2">
+                        <div id="grafico_linhas" class="graficos"></div>
+                    </div>
+                </div>
+                <div class="frame3">
+                   <div class="titulo-frame2">
+                        <p class="frame-text2">
+                            Empreendedorismo em destaque
+                        </p>
+                       <a href="https://www.contabilizei.com.br/calculadora-clt-pj/" class="frame-textconta">
+                            Powered by Contabilizei
+                       </a>
+                   </div>
+                   <div class="materia-newsletter">
+                       {% if news_empreendedor %}
+                       {% else %}
+                            <p>Newsletter não está disponível.</p>
+                       {% endif %}
+                        <div class="materia-titulo">
+                            <h2>
+                                {{ news_empreendedor.titulo_materia_chamariz }}
+                            </h2>
+                        </div>
+                       <div class="materia-conteudo">
+                           <p>
+                               {{ news_empreendedor.desc_materia_chamativa }}
+                           </p>
+                       </div>
+                       <div class="subscribe-button">
+                           <a href="{{ news_empreendedor.link_newsletter }}">Saiba mais</a>
+                       </div>
+                   </div>
+                </div>
+                <div class="frame3">
+                   <div class="titulo-frame2">
+                        <p class="frame-text2">
+                            Mercado de trabalho em destaque
+                        </p>
+                   </div>
+                   <div class="materia-newsletter">
+                       {% if news_mercado %}
+                       {% else %}
+                            <p>Newsletter não está disponível.</p>
+                       {% endif %}
+                        <div class="materia-titulo">
+                            <h2>
+                                {{ news_mercado.titulo_materia_chamariz }}
+                            </h2>
+                        </div>
+                       <div class="materia-conteudo">
+                           <p>
+                               {{ news_mercado.desc_materia_chamativa }}
+                           </p>
+                       </div>
+                       <div class="subscribe-button">
+                           <a href="{{ news_mercado.link_newsletter }}">Saiba mais</a>
+                       </div>
+                   </div>
+                </div>
+                <div class="vagas menudvagas">
+                    <p>Encontre vagas:</p>
+                    <a href="https://www.glassdoor.com.br/index.htm">
+                        <img src="../../static/images/Glassdoor_Logo.png" alt="Descrição da Primeira Imagem">
+                    </a>
+                    <a href="https://br.indeed.com/">
+                        <img src="../../static/images/Indeed_logo.png" alt="Descrição da Primeira Imagem">
+                    </a>
+                    <a href="https://www.linkedin.com">
+                      <img src="../../static/images/linkedin_logo.png" alt="Descrição da Primeira Imagem">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        var json_radar = JSON.parse('{{ radar_vagas|safe }}');
+        var json_barras = JSON.parse('{{ barras_vagas|safe }}');
+        var json_linhas = JSON.parse('{{ linhas_salario|safe }}');
+        var json_compara = JSON.parse('{{ barras_compara|safe }}');
+
+        json_radar.layout.autosize = true;
+        json_barras.layout.autosize = true;
+        json_linhas.layout.autosize = true;
+        json_compara.layout.autosize = true;
+
+        Plotly.newPlot('grafico_radar', json_radar.data, json_radar.layout);
+        Plotly.newPlot('grafico_barras', json_barras.data, json_barras.layout);
+        Plotly.newPlot('grafico_linhas', json_linhas.data, json_linhas.layout);
+        Plotly.newPlot('grafico_compara', json_compara.data, json_compara.layout);
+
+        document.addEventListener("DOMContentLoaded", function() {
+        const limitCharacters = (selector, limit) => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(element => {
+                if (element.innerText.length > limit) {
+                    element.innerText = element.innerText.substring(0, limit) + '...';
+                }
+            });
+        };
+
+        limitCharacters('.materia-newsletter h2', 37);
+        });
+
+        function postLink(url) {
+            const form = document.createElement('form');
+            form.method = 'post';
+            form.action = url;
+
+            const csrfToken = '{{ csrf_token }}';
+            const hiddenField = document.createElement('input');
+            hiddenField.type = 'hidden';
+            hiddenField.name = 'csrfmiddlewaretoken';
+            hiddenField.value = csrfToken;
+            form.appendChild(hiddenField);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+
+        document.querySelector('.menu-btn').addEventListener('click', openNav);
+        document.querySelector('.close-btn').addEventListener('click', closeNav);
+
+        function unsubscribe(newsletterId) {
+            if (!confirm('Tem certeza que deseja desinscrever-se desta newsletter?')) return;
+
+            fetch('/desinscrever-newsletter/' + newsletterId + '/', {  // Adiciona a barra ao final
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken'),
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({})
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('Falha na resposta do servidor');
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    alert('Desinscrição realizada com sucesso!');
+                    location.reload(); // Recarrega a página para refletir a mudança
+                } else {
+                    alert('Erro ao desinscrever: ' + data.error);
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('Erro ao processar a solicitação: ' + error.message);
+            });
+        }
+
+
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+
+    </script>
+  </body>
+</html>

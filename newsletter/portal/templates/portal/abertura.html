@@ -1,0 +1,187 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Newsletter</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'portal/style_abertura.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300..700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class = "cont-esquerda">
+        <div class="menus">
+          <div class="espacamentoe newslist">
+            <h1> THE NEW'S LIST</h1>
+          </div>
+<!--          <div id="busca" class="men">-->
+<!--            <form action="/buscar" method="get" class="simb_busca">🔎-->
+<!--                <input type="text" name="termo" id="campo-busca" placeholder="   Confira uma Carreira">-->
+<!--                <button type="submit"> ▼ </button>-->
+<!--            </form>-->
+<!--          </div>-->
+          <div class="espacamentoe">
+            <h1> Acompanhe suas NewsLetters favoritas</h1>
+          </div>
+          <div class="newsletter menue">
+            {% if newsletter_1 %}
+            {% else %}
+              <p>Newsletter não está disponível &nbsp</p>
+            {% endif %}
+            <div class="news">
+                <h2>
+                    {{ newsletter_1.nome_newsletter }} | <a href="{% url 'login' %}"> ASSINAR </a>
+                </h2>
+            </div>
+          </div>
+          <div class="newsletter menue">
+            {% if newsletter_2 %}
+            {% else %}
+              <p>Newsletter não está disponível &nbsp</p>
+            {% endif %}
+            <div class="news">
+                <h2>
+                    {{ newsletter_2.nome_newsletter }} | <a href="{% url 'login' %}"> ASSINAR </a>
+                </h2>
+            </div>
+          </div>
+          <div class="newsletter menue">
+            {% if newsletter_3 %}
+            {% else %}
+              <p>Newsletter não está disponível &nbsp</p>
+            {% endif %}
+            <div class="news">
+                <h2>
+                    {{ newsletter_3.nome_newsletter }} | <a href="{% url 'login' %}"> ASSINAR </a>
+                </h2>
+            </div>
+          </div>
+          <div class="newsletter menue">
+            {% if newsletter_4 %}
+            {% else %}
+              <p>Newsletter não está disponível &nbsp</p>
+            {% endif %}
+            <div class="news">
+                <h2>
+                    {{ newsletter_4.nome_newsletter }} | <a href="{% url 'login' %}"> ASSINAR </a>
+                </h2>
+            </div>
+          </div>
+          <div class="area-cadastro">
+            <div class="cadastro menu-cadastro">
+              <a href="{% url 'cadastro' %}">
+                   <h2>
+                     CADASTRAR
+                   </h2>
+              </a>
+            </div>
+            <div class="login menu-cadastro">
+              <a href="{% url 'login' %}">
+                <h2>
+                  LOGIN
+                </h2>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class = "cont-direita">
+        <div class="espacamentod">
+          <h1> Saiba mais sobre a sua carreira </h1>
+        </div>
+        <div class="sobre-carreira">
+          <div class="carreira menud">
+            <div>
+            {% for row in media_salario_grupo.itertuples %}
+              <p>
+                {{ row.senioridade }}&nbsp;&nbsp;&nbsp;🢒&nbsp;&nbsp;&nbsp;R$ {{ row.salario|floatformat:2 }}
+              </p>
+            {% endfor %}
+            </div>
+          </div>
+          <div class="carreira menud">
+            <div>
+              {% for perfil, count in top_perfil.items %}
+                <p>
+                   ★ {{ perfil }}
+                </p>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="espacamentodpeq">
+          <h1> Procure por vagas nos principais sites </h1>
+        </div>
+        <div class="vagas menudvagas">
+          <a href="https://www.glassdoor.com.br/index.htm">
+              <img src="../../static/images/Glassdoor_Logo.png" alt="Descrição da Primeira Imagem">
+          </a>
+          <a href="https://br.indeed.com/">
+              <img src="../../static/images/Indeed_logo.png" alt="Descrição da Primeira Imagem">
+          </a>
+          <a href="https://www.linkedin.com">
+              <img src="../../static/images/linkedin_logo.png" alt="Descrição da Primeira Imagem">
+          </a>
+        </div>
+        <div class="espacamentodpeq">
+          <h1> Saiba mais sobre Mercado de trabalho e empreendedorismo </h1>
+        </div>
+        <div class="empreendedorismo ">
+              <div class="empreendedorismo-caixa menud">
+                {% if news_mercado %}
+                 {% else %}
+                      <p>Newsletter não está disponível.</p>
+                 {% endif %}
+                  <div class="materia-titulo">
+                      <h2>
+                          {{ news_mercado.titulo_materia_chamariz }}
+                      </h2>
+                  </div>
+                 <div class="materia-conteudo">
+                     <p>
+                         {{ news_mercado.desc_materia_chamativa }}
+                     </p>
+                 </div>
+              </div>
+              <div class="empreendedorismo-caixa menud">
+                {% if news_empreendedor %}
+                 {% else %}
+                      <p>Newsletter não está disponível.</p>
+                 {% endif %}
+                  <div class="materia-titulo">
+                      <h2>
+                          {{ news_empreendedor.titulo_materia_chamariz }}
+                      </h2>
+                  </div>
+                 <div class="materia-conteudo">
+                     <p>
+                         {{ news_empreendedor.desc_materia_chamativa }}
+                     </p>
+                 </div>
+              </div>
+              </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        const limitCharacters = (selector, limit) => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(element => {
+                if (element.innerText.length > limit) {
+                    element.innerText = element.innerText.substring(0, limit) + '...';
+                }
+            });
+        };
+
+        limitCharacters('.empreendedorismo-caixa h2', 37);
+        });
+    </script>
+  </body>
+</html>

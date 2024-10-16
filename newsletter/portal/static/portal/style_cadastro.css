@@ -1,0 +1,113 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #333;
+    color: #FDBD18;
+    font-family: "Akshar", sans-serif;
+}
+
+.form-container {
+    color: #333;
+    width: 60%;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 5.0em;
+    color: #BB0F0F;
+    margin-top: 30px;
+    margin-bottom:1px;
+}
+
+h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 2.5em;
+    color: #D3D3D3;
+    margin-top:1px;
+}
+
+form {
+    width: 100%;
+    color: #FDBD18;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, textarea, select, button, .btn-cadastro {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.form-select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 110%;
+}
+
+button {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 1.7em;
+    background-color: #FDBD18;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 1.5s;
+    width: 100%;
+    margin:15px;
+    margin-bottom:40px;
+}
+
+.btn-cadastro {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 1.7em;
+    background-color: #FDBD18;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 1.5s;
+    width: 100%;
+    text-align: center;
+    margin-top:15px;
+    margin-bottom:40px;
+}
+
+button:hover, .btn-cadastro:hover {
+    background-color: #000000;
+}
+

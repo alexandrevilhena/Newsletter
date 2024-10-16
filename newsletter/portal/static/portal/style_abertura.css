@@ -1,0 +1,692 @@
+* {
+padding:0;
+margin:0;
+vertical-align:baseline;
+list-style:none;
+border:0;
+box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #D3D3D3;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+  min-height: 100%;
+}
+
+.cont-esquerda {
+  flex: 5;
+  background-color: #D3D3D3;
+  color: red;
+  flex-direction: column;
+  justify-content: top;
+}
+
+.cont-direita {
+  flex: 5;
+  background-color: #D3D3D3;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow: auto;
+}
+
+.menus {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  margin-left:20px;
+}
+
+#busca{
+  height: 7vh;
+  margin-top: 25px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width: 95vh;
+  background-color: #333;
+  border-radius: 35px;
+  padding: 0 10px 6px 0;
+}
+
+.menue {
+  display: flex;
+  display: column;
+  margin: 5px;
+  height: 13vh;
+  width: 95vh;
+  background-color: #333;
+  border-radius: 35px;
+  padding-left: 20px;
+}
+
+.espacamentoe{
+  display: flex;
+  display: column;
+  margin: 5px;
+  height: 13vh;
+  width: 95vh;
+  padding-left: 20px;
+  align-items:center;
+}
+
+.espacamentoe h1{
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.newslist h1{
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 5.5em;
+  color:#BB0F0F;
+  margin-top:6vh;
+}
+
+
+
+.newsletter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.0em;
+  color: #FFFFFF;
+}
+
+.newsletter a{
+  text-decoration: none;
+  color: rgba(32,178,170,1);
+}
+
+.area-cadastro{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 1.0em;
+  color: #FDBD18;
+  width: 95vh;
+}
+
+.menu-cadastro{
+  background-color: #333;
+  height: 8vh;
+  margin-top: 10px;
+  margin:5px;
+  width: 47vh;
+  border-radius: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cadastro a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.login a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.centraliza{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menud {
+  display: flex;
+  display: column;
+  margin: 5px;
+  height: 27vh;
+  width: 85vh;
+  background-color: #333;
+  border-radius: 35px;
+  padding-left: 20px;
+}
+
+.espacamentod h1{
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.espacamentodpeq h1{
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1.5em;
+  color: #333;
+}
+.menudvagas{
+  display: flex;
+  display: column;
+  margin: 5px;
+  height: 15vh;
+  width: 85vh;
+  background-color: #333;
+  border-radius: 35px;
+  padding-left: 20px;
+}
+.espacamentod{
+  display: flex;
+  display: column;
+  margin: 5px;
+  height: 5vh;
+  width: 85vh;
+  padding-left: 20px;
+}
+
+.espacamentodpeq{
+  margin: 5px;
+  width: 85vh;
+  height: 5vh;
+  padding-left: 20px;
+}
+
+.sobre-carreira{
+  display: flex;
+  width: 85vh;
+  height: 35vh;
+  display: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.carreira{
+  display: flex;
+  display: column;
+  color: white;
+  font-family: "Akshar", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-size:20px;
+  text-align: justify;
+  justify-content: center;
+  align-items: center;
+}
+
+.empreendedorismo{
+  display: flex;
+  width: 85vh;
+  height: 35vh;
+}
+
+#campo-busca {
+    width: 80vh;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    align-items: center;
+}
+
+form button {
+    height: 30px;
+    width: 5vh;
+    border: none;
+    background-color: #FDBD18;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #EBA900;
+}
+
+.simb_busca{
+ font-size: 1.5em;
+}
+
+.vagas{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vagas img{
+  max-width: 60px;
+  margin:30px;
+}
+
+.materia-titulo{
+  font-family: "Domine", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size:14px;
+  color: white;
+  margin-top:15px;
+}
+
+.materia-conteudo{
+  padding-top: 10px;
+  font-family: "Domine", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-size:12px;
+  color: white;
+}
+
+.empreendedorismo-caixa{
+  display: flex;
+  flex-direction: column;
+  width:100%;
+}
+
+
+.empreendedorismo1 p {
+    position: relative;
+    overflow: hidden;
+}
+
+.empreendedorismo1 p::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(to bottom, transparent, #333 90%);
+    pointer-events: none;
+}
+
+
+@media (max-width: 1024px) {
+
+.container {
+    width: 100%;
+    overflow: visible;
+    height: 120%;
+}
+
+.cont-esquerda {
+  width:60%;
+  overflow: visible;
+}
+
+.cont-direita {
+  width:60%;
+  overflow: visible;
+}
+
+.espacamentoe h1{
+  font-size: 1.5em;
+}
+
+.newslist h1{
+  font-size: 5.5em;
+}
+
+.newsletter{
+  font-size: 0.7em;
+}
+
+.area-cadastro{
+  font-size: 0.7em;
+}
+
+.carreira{
+  font-weight: 300;
+  font-size:1.0em;
+}
+
+.espacamentod h1{
+  font-size: 1.0em;
+}
+
+.espacamentodpeq h1{
+  font-size: 1.0em;
+}
+
+.materia-titulo{
+  font-size: 0.7em;
+}
+
+.materia-conteudo{
+  font-size:0.5em;
+}
+
+.vagas img{
+  max-width: 60px;
+  margin:30px;
+}
+
+}
+
+@media (max-width: 970px) {
+html, body {
+    height: 100%;
+    width:100%;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+}
+
+.container {
+    flex-direction: column;
+    display:flex;
+    align-items: center;
+    width: 100%;
+    overflow: visible;
+    height: 120%;
+}
+
+.cont-esquerda {
+  width:80%;
+  overflow: visible;
+}
+
+.cont-direita {
+  width:80%;
+  overflow: visible;
+}
+
+.espacamentoe h1{
+  font-size: 1.5em;
+}
+
+.newslist h1{
+  font-size: 5.5em;
+}
+
+.newsletter{
+  font-size: 0.7em;
+}
+
+.area-cadastro{
+  font-size: 0.7em;
+}
+
+.carreira{
+  font-weight: 300;
+  font-size:1.0em;
+}
+
+.espacamentod h1{
+  font-size: 1.0em;
+}
+
+.espacamentodpeq h1{
+  font-size: 1.0em;
+}
+
+.materia-titulo{
+  font-size: 0.7em;
+}
+
+.materia-conteudo{
+  font-size:0.5em;
+}
+
+.vagas img{
+  max-width: 60px;
+  margin:30px;
+}
+
+}
+
+/*
+@media (min-width: 1281px) and (max-width: 1440px) {
+.espacamentoe h1{
+  font-size: 2.5em;
+}
+
+.newslist h1{
+  font-size: 8.5em;
+}
+
+.newsletter{
+  font-size: 2.0em;
+}
+
+.area-cadastro{
+  font-size: 2.0em;
+}
+
+.carreira{
+  font-weight: 300;
+  font-size:2.5em;
+}
+
+.espacamentod h1{
+  font-size: 2.5em;
+}
+
+.espacamentodpeq h1{
+  font-size: 2.5em;
+}
+
+.materia-titulo{
+  font-size: 2.0em;
+}
+
+.materia-conteudo{
+  font-size:1.5em;
+}
+
+.vagas img{
+  max-width: 140px;
+  margin:40px;
+}
+
+}
+
+@media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 1/1),
+       (min-aspect-ratio: 4/5) and (max-aspect-ratio: 5/4) {
+html, body {
+    height: 100%;
+    width:100%;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 80vw;
+    overflow: visible;
+}
+
+.menus, .menue, .menu-cadastro, .sobre-carreira, .espacamentod, .espacamentoe, .espacamentodpeq, .carreira, .empreendedorismo, .menud, .menudvagas, .area-cadastro, .espacamentod,.espacamentoe{
+    width: 90%;
+}
+
+.cont-direita {
+  overflow: visible;
+}
+
+@media (min-width: 1200px) and (max-width: 1440px) {
+.espacamentoe h1{
+  font-size: 3.5em;
+}
+
+.newslist h1{
+  font-size: 10.5em;
+}
+
+.newsletter{
+  font-size: 2.0em;
+}
+
+.area-cadastro{
+  font-size: 2.0em;
+}
+
+.carreira{
+  font-weight: 300;
+  font-size:2.5em;
+}
+
+.espacamentod h1{
+  font-size: 2.5em;
+}
+
+.espacamentodpeq h1{
+  font-size: 2.5em;
+}
+
+.materia-titulo{
+  font-size: 2.0em;
+}
+
+.materia-conteudo{
+  font-size:1.5em;
+}
+
+.vagas img{
+  max-width: 120px;
+  margin:40px;
+}
+
+}
+}
+
+
+@media only screen and (orientation: portrait){
+html, body {
+    height: 100%;
+    width:100%;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100vw;
+    overflow: visible;
+}
+
+.menus, .menue, .menu-cadastro, .sobre-carreira, .espacamentod, .espacamentoe, .espacamentodpeq, .carreira, .empreendedorismo, .menud, .menudvagas, .area-cadastro, .espacamentod,.espacamentoe{
+    width: 95%;
+}
+
+.cont-direita {
+  overflow: visible;
+}
+
+@media (min-width: 500px) and (max-width: 1240px) {
+.espacamentoe h1{
+  font-size: 2.0em;
+}
+
+.newslist h1{
+  font-size: 6.5em;
+}
+
+.newsletter{
+  font-size: 1.5em;
+}
+
+.area-cadastro{
+  font-size: 2.0em;
+}
+
+.carreira{
+  font-weight: 300;
+  font-size:1.5em;
+}
+
+.espacamentod h1{
+  font-size: 2.5em;
+  margin-top:1em;
+}
+
+.espacamentodpeq h1{
+  font-size: 2.5em;
+  margin:1em;
+}
+
+.materia-titulo{
+  font-size: 1.0em;
+}
+
+.materia-conteudo{
+  font-size:1.0em;
+}
+
+.vagas img{
+  max-width: 80px;
+  margin:30px;
+}
+
+}
+
+}
+
+@media screen and (aspect-ratio: 192/100) {
+    @media (min-width: 900px) and (max-width: 1600px) {
+.espacamentoe h1{
+  font-size: 2.0em;
+}
+
+.newslist h1{
+  font-size: 2.5em;
+}
+
+.newsletter{
+  font-size: 1.5em;
+}
+
+.area-cadastro{
+  font-size: 2.0em;
+}
+
+.carreira{
+  font-weight: 300;
+  font-size:1.5em;
+}
+
+.espacamentod h1{
+  font-size: 2.5em;
+  margin-top:1em;
+}
+
+.espacamentodpeq h1{
+  font-size: 2.5em;
+  margin:1em;
+}
+
+.materia-titulo{
+  font-size: 1.0em;
+}
+
+.materia-conteudo{
+  font-size:1.0em;
+}
+
+.vagas img{
+  max-width: 80px;
+  margin:30px;
+}
+
+}
+}

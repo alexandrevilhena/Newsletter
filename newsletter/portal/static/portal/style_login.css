@@ -1,0 +1,117 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #333;
+    color: white;
+    font-family: "Akshar", sans-serif;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    max-width: 360px;
+}
+
+
+h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 4.5em;
+    color: #BB0F0F;
+    margin-top: 30px;
+    margin-bottom: 1px;
+}
+
+h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 2.5em;
+    margin-top: 30px;
+    color: #D3D3D3;
+    margin-top:1px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    align-self: flex-start;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+button, .btn-cadastro {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 1.7em;
+    background-color: #FDBD18;
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    width: 75%;
+}
+
+.btn-cadastro {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 1.7em;
+    background-color: #FDBD18;
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.5s;
+    width: 70%;
+    text-align: center;
+}
+
+button:hover, .btn-cadastro:hover {
+    background-color: #000000;
+}

@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'portal/style_cadastro.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300..700&family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="form-container">
+        <h1>THE NEW'S LIST</h1>
+        <h2>Cadastro</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="menu">
+                <a href="{% url 'login' %}" class="btn-cadastro">Já possuo cadastro</a>
+                <button type="submit">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
